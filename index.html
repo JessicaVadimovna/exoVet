@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExoVet — Ветеринарная клиника для экзотических животных</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Навигация -->
+    <header>
+      <nav>
+        <div class="logo">ExoVet</div>
+        <div class="menu-toggle">☰</div>
+        <ul class="nav-menu">
+          <li><a href="#about" onclick="closeMenu()">О нас</a></li>
+          <li><a href="#services" onclick="closeMenu()">Услуги</a></li>
+          <li><a href="#specialists" onclick="closeMenu()">Специалисты</a></li>
+          <li><a href="#gallery" onclick="closeMenu()">Галерея</a></li>
+          <li><a href="#prices" onclick="closeMenu()">Прайс</a></li>
+          <li><a href="#contacts" onclick="closeMenu()">Контакты</a></li>
+          <li class="theme-toggle-mobile">
+            <div class="toggle-switch" onclick="toggleTheme()">
+              <img
+                src="./assets/img/icon/sun.png"
+                alt="Light Theme"
+                class="toggle-icon light-icon"
+              />
+              <img
+                src="./assets/img/icon/crescent-moon.png"
+                alt="Dark Theme"
+                class="toggle-icon dark-icon"
+              />
+              <div class="toggle-slider"></div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Приветственный блок -->
+    <section class="hero">
+      <div class="hero-content">
+        <img
+          src="./assets/img/logo.png"
+          alt="ExoVet Clinic"
+          class="hero-image"
+        />
+        <div class="hero-text">
+          <h1>Ветеринарная клиника для экзотических животных</h1>
+          <p>
+            Мы заботимся о ваших необычных питомцах с любовью и
+            профессионализмом!
+          </p>
+          <button onclick="scrollToSection('about')">Узнать больше</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="about">
+      <h2>О нас</h2>
+      <p>
+        ExoVet — это специализированная клиника, которая предоставляет
+        экспертную ветеринарную помощь исключительно экзотическим животным.
+      </p>
+      <h3>Мы принимаем:</h3>
+      <div class="animal-list">
+        <div class="animal-item">
+          <img
+            src="./assets/img/rodentia.png"
+            alt="Грызуны"
+            class="animal-icon"
+          />
+          <p>
+            Грызунов (крыс, хомяков, морских свинок, шиншилл, дегу, песчанок,
+            мышей)
+          </p>
+        </div>
+        <div class="animal-item">
+          <img
+            src="./assets/img/rabbits.png"
+            alt="Кролики"
+            class="animal-icon"
+          />
+          <p>Кроликов</p>
+        </div>
+        <div class="animal-item">
+          <img
+            src="./assets/img/squirrels.png"
+            alt="Бельчьи"
+            class="animal-icon"
+          />
+          <p>Беличьих</p>
+        </div>
+        <div class="animal-item">
+          <img
+            src="./assets/img/reptiles.png"
+            alt="Рептилии"
+            class="animal-icon"
+          />
+          <p>Рептилий (черепах, ящериц, змей)</p>
+        </div>
+        <div class="animal-item">
+          <img src="./assets/img/birds.png" alt="Птицы" class="animal-icon" />
+          <p>Птиц</p>
+        </div>
+        <div class="animal-item">
+          <img
+            src="./assets/img/rousettus.png"
+            alt="Крыланы"
+            class="animal-icon"
+          />
+          <p>Крыланов</p>
+        </div>
+        <div class="animal-item">
+          <img src="./assets/img/hedgehogs.png" alt="Ежи" class="animal-icon" />
+          <p>Ежей</p>
+        </div>
+        <div class="animal-item">
+          <img
+            src="./assets/img/ferrets.png"
+            alt="Хорьки"
+            class="animal-icon"
+          />
+          <p>Хорьков</p>
+        </div>
+        <div class="animal-item">
+          <img
+            src="./assets/img/raccoons.png"
+            alt="Еноты"
+            class="animal-icon"
+          />
+          <p>Енотов</p>
+        </div>
+        <div class="animal-item">
+          <img src="./assets/img/mink.png" alt="Норки" class="animal-icon" />
+          <p>Норок</p>
+        </div>
+        <div class="animal-item">
+          <img
+            src="./assets/img/67d933465e5b1_20250318084806.svg"
+            alt="Лисицы"
+            class="animal-icon"
+          />
+          <p>Лисиц</p>
+        </div>
+        <div class="animal-item">
+          <img
+            src="./assets/img/other.png"
+            alt="Крупные кошачьи"
+            class="animal-icon"
+          />
+          <p>Крупных кошачьих и т. д.</p>
+        </div>
+      </div>
+      <h3>Почему выбирают нас?</h3>
+      <div class="features-list">
+        <div class="feature-item">
+          <span class="feature-icon">
+            <img src="./assets/img/icon/stethoscope-icon.png" alt="" />
+          </span>
+          <p>Современные методы диагностики и лечения</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">
+            <img src="./assets/img/icon/hospital-icon.png" alt="" />
+          </span>
+          <p>
+            Операционная с современным оборудованием и безопасной газовой
+            анестезией
+          </p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">
+            <img
+              src="./assets/img/icon/rare-veterinary-services-icon.png"
+              alt=""
+            />
+          </span>
+          <p>Редкие ветеринарные услуги</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">
+            <img src="./assets/img/icon/female-veterinarian-icon.png" alt="" />
+          </span>
+          <p>Квалифицированные врачи, постоянно совершенствующие знания</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">
+            <img src="./assets/img/icon/heart-icon.png" alt="" />
+          </span>
+          <p>Бережное и заботливое отношение к вашим питомцам</p>
+        </div>
+      </div>
+      <h3>Наша клиника</h3>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="./assets/img/photo/" alt="Фасад клиники" />
+          <p>Фасад нашей клиники</p>
+        </div>
+        <div class="gallery-item">
+          <img src="./assets/img/photo/" alt="Приемная" />
+          <p>Приемная</p>
+        </div>
+        <div class="gallery-item">
+          <img src="./assets/img/photo/" alt="Операционная" />
+          <p>Операционная</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+      <h2>Наши услуги</h2>
+      <p>В клинике предоставляется полный спектр услуг:</p>
+      <div class="service-list">
+        <div class="service-item">
+          <h3>Консультации</h3>
+          <p>
+            Профессиональные рекомендации по уходу за экзотическими животными.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Первичный приём</h3>
+          <p>
+            Осмотр, сбор анамнеза, измерение физикальных показателей, назначение
+            диагностики и лечения.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Отоскопия</h3>
+          <p>
+            Безболезненный осмотр наружного слухового прохода и барабанной
+            перепонки.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Диспансеризация</h3>
+          <p>
+            Плановые диагностические мероприятия для выявления заболеваний на
+            ранней стадии.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Вакцинация</h3>
+          <p>
+            Вакцинация хорьков, кроликов, енотов и других животных с учётом их
+            особенностей.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Стационарное наблюдение</h3>
+          <p>
+            Круглосуточный уход для животных в тяжёлом состоянии или после
+            операций.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Стоматология</h3>
+          <p>
+            Осмотр ротовой полости, диагностика и лечение (иногда под наркозом).
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Дерматология</h3>
+          <p>Осмотр, диагностика и лечение кожных заболеваний.</p>
+        </div>
+        <div class="service-item">
+          <h3>Хирургия</h3>
+          <p>
+            Кастрация, стерилизация и другие операции с использованием
+            безопасной анестезии.
+          </p>
+        </div>
+        <div class="service-item">
+          <h3>Анестезия</h3>
+          <p>Контроль жизненно важных функций животного во время операций.</p>
+        </div>
+        <div class="service-item">
+          <h3>Травматология</h3>
+          <p>Лечение травм и повреждений.</p>
+        </div>
+        <div class="service-item">
+          <h3>Цитология</h3>
+          <p>Диагностика на клеточном уровне.</p>
+        </div>
+        <div class="service-item">
+          <h3>Анализы</h3>
+          <p>Крови, бакпосевы, мочи, кала для точной диагностики.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Специалисты -->
+    <section id="specialists" class="specialists">
+      <h2>Наши специалисты</h2>
+      <div class="specialist-list">
+        <div class="specialist-item">
+          <img src="https://via.placeholder.com/150" alt="Ветеринар 1" />
+          <h3>Анна Иванова</h3>
+          <p>Специалист по рептилиям, стаж 10 лет.</p>
+        </div>
+        <div class="specialist-item">
+          <img src="https://via.placeholder.com/150" alt="Ветеринар 2" />
+          <h3>Михаил Петров</h3>
+          <p>Эксперт по экзотическим птицам, стаж 8 лет.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Фотогалерея -->
+    <section id="gallery" class="gallery">
+      <h2>Фотогалерея наших пациентов</h2>
+      <div class="carousel">
+        <div class="carousel-inner">
+          <!-- Дублируем последние 3 изображения в начало -->
+          <img src="./assets/img/photo/1.png" alt="Пациент 2" />
+          <img src="./assets/img/photo/2.png" alt="Пациент 3" />
+          <img src="./assets/img/photo/3.png" alt="Пациент 4" />
+          <!-- Оригинальные изображения -->
+          <img src="./assets/img/photo/4.png" alt="Пациент 1" />
+          <img src="./assets/img/photo/5.png" alt="Пациент 2" />
+          <img src="./assets/img/photo/6.png" alt="Пациент 3" />
+          <img src="./assets/img/photo/7.png" alt="Пациент 4" />
+          <!-- Дублируем первые 3 изображения в конец -->
+          <img src="./assets/img/photo/8.png" alt="Пациент 1" />
+          <img src="./assets/img/photo/9.png" alt="Пациент 2" />
+          <img src="./assets/img/photo/9.png" alt="Пациент 3" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Прайс-лист -->
+    <section id="prices" class="prices">
+      <h2>Прайс-лист</h2>
+      <p class="price-disclaimer">
+        Информация о ценах не является публичной офертой. Обновлено 29 ноября
+        2024.
+      </p>
+      <h3>Терапия</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Услуга</th>
+              <th>Цена (руб.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Первичный приём</td>
+              <td>850 – 2 100</td>
+            </tr>
+            <tr>
+              <td>Отоскопия</td>
+              <td>450</td>
+            </tr>
+            <tr>
+              <td>Диспансеризация</td>
+              <td>от 1 500</td>
+            </tr>
+            <tr>
+              <td>Вакцинация (хорьки, кролики)</td>
+              <td>от 1 600</td>
+            </tr>
+            <tr>
+              <td>Стационар</td>
+              <td>500 – 2 500</td>
+            </tr>
+            <tr>
+              <td>Приём стоматолога</td>
+              <td>от 1 100</td>
+            </tr>
+            <tr>
+              <td>Первичный приём дерматолога</td>
+              <td>от 1 100</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Хирургия</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Услуга</th>
+              <th>Цена (руб.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Кастрация</td>
+              <td>от 1 800</td>
+            </tr>
+            <tr>
+              <td>Кастрация самок (стерилизация)</td>
+              <td>от 2 700</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Анестезия</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Услуга</th>
+              <th>Цена (руб.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Анестезия</td>
+              <td>1 000 – 5 000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="contacts">
+      <div class="contacts-container">
+        <div class="contact-info">
+          <h2>Контакты</h2>
+          <ul>
+            <li class="address-item">
+              <a
+                href="https://go.2gis.com/eA8Qs"
+                target="_blank"
+                class="map-link"
+                >Мы находимся по адресу г. Иркутск, ул. Декабрьских Событий,
+                105в
+              </a>
+            </li>
+            <li>
+              <span>Телефон:</span>
+              <a href="tel:+79526220616">+7 (952) 622-06-16</a>
+            </li>
+            <li>
+              <span>Email:</span>
+              <a href="mailto:exovet_irk@mail.ru">exovet_irk@mail.ru</a>
+            </li>
+            <li>
+              <span>График работы:</span> Ежедневно с 10:00 до 20:00 (по
+              предварительному звонку)
+            </li>
+          </ul>
+        </div>
+        <div class="appointment-block">
+          <h3>Записаться на прием</h3>
+          <p>Свяжитесь с нами через:</p>
+          <div class="social-links">
+            <a href="https://t.me/exovet_irk"
+              >Telegram
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 256 256"
+              >
+                <g fill="#e5acbf">
+                  <g transform="scale(3.55556,3.55556)">
+                    <path
+                      d="M36,12c13.255,0 24,10.745 24,24c0,13.255 -10.745,24 -24,24c-13.255,0 -24,-10.745 -24,-24c0,-13.255 10.745,-24 24,-24zM44.279,45.783c0.441,-1.354 2.51,-14.853 2.765,-17.513c0.077,-0.806 -0.177,-1.341 -0.676,-1.58c-0.603,-0.29 -1.496,-0.145 -2.533,0.229c-1.421,0.512 -19.59,8.227 -20.64,8.673c-0.995,0.423 -1.937,0.884 -1.937,1.552c0,0.47 0.279,0.734 1.047,1.008c0.799,0.285 2.812,0.895 4.001,1.223c1.145,0.316 2.448,0.042 3.178,-0.412c0.774,-0.481 9.71,-6.46 10.351,-6.984c0.641,-0.524 1.152,0.147 0.628,0.672c-0.524,0.524 -6.657,6.477 -7.466,7.301c-0.982,1.001 -0.285,2.038 0.374,2.453c0.752,0.474 6.163,4.103 6.978,4.685c0.815,0.582 1.641,0.846 2.398,0.846c0.757,0 1.155,-0.996 1.532,-2.153z"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+            </a>
+
+            <a href="https://wa.me/79526220616"
+              >WhatsApp
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 256 256"
+              >
+                <g fill="#e5acbf">
+                  <g transform="scale(3.55556,3.55556)">
+                    <path
+                      d="M36,12c13.255,0 24,10.745 24,24c0,13.255 -10.745,24 -24,24c-4.248,0 -8.235,-1.108 -11.697,-3.044l-12.069,2.7l3.071,-11.505c-2.097,-3.565 -3.305,-7.716 -3.305,-12.151c0,-13.255 10.745,-24 24,-24zM45.919,43.256c0.421,-1.169 0.421,-2.17 0.29,-2.382c-0.128,-0.203 -0.46,-0.328 -0.968,-0.579c-0.508,-0.251 -2.996,-1.464 -3.463,-1.629c-0.46,-0.165 -0.801,-0.251 -1.133,0.251c-0.341,0.502 -1.307,1.63 -1.608,1.958c-0.292,0.337 -0.585,0.376 -1.093,0.125c-0.508,-0.251 -2.14,-0.776 -4.073,-2.483c-1.504,-1.323 -2.518,-2.96 -2.811,-3.461c-0.293,-0.501 -0.032,-0.775 0.221,-1.026c0.23,-0.219 0.508,-0.579 0.761,-0.869c0.245,-0.298 0.332,-0.502 0.499,-0.839c0.175,-0.328 0.087,-0.626 -0.039,-0.877c-0.126,-0.251 -1.109,-2.725 -1.561,-3.712c-0.379,-0.83 -0.777,-0.854 -1.141,-0.862c-0.295,-0.015 -0.636,-0.015 -0.968,-0.015c-0.341,0 -0.888,0.124 -1.354,0.626c-0.458,0.502 -1.766,1.709 -1.766,4.176c0,2.458 1.807,4.84 2.061,5.168c0.254,0.337 3.501,5.552 8.651,7.557c4.27,1.661 5.142,1.332 6.077,1.246c0.93,-0.079 2.997,-1.207 3.418,-2.373z"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="telegram-subscribe">
+          <h3>Подписывайтесь</h3>
+          <p>На наш Telegram-канал</p>
+          <a href="https://t.me/exovet_irk38" class="subscribe-btn"
+            >Подписаться</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+      <p>
+        © 2025 ExoVet. <br />
+        Сайт разработан
+        <a href="https://t.me/JessiLis" target="_blank">JessiLis</a>, 2025.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
