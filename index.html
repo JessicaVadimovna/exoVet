@@ -19,22 +19,22 @@
           <li><a href="#gallery" onclick="closeMenu()">Галерея</a></li>
           <li><a href="#prices" onclick="closeMenu()">Прайс</a></li>
           <li><a href="#contacts" onclick="closeMenu()">Контакты</a></li>
-          <li class="theme-toggle-mobile">
-            <div class="toggle-switch" onclick="toggleTheme()">
-              <img
-                src="./assets/img/icon/sun.png"
-                alt="Light Theme"
-                class="toggle-icon light-icon"
-              />
-              <img
-                src="./assets/img/icon/crescent-moon.png"
-                alt="Dark Theme"
-                class="toggle-icon dark-icon"
-              />
-              <div class="toggle-slider"></div>
-            </div>
-          </li>
         </ul>
+        <div class="theme-toggle-mobile">
+          <div class="toggle-switch" onclick="toggleTheme()">
+            <img
+              src="./assets/img/icon/sun.png"
+              alt="Light Theme"
+              class="toggle-icon light-icon"
+            />
+            <img
+              src="./assets/img/icon/crescent-moon.png"
+              alt="Dark Theme"
+              class="toggle-icon dark-icon"
+            />
+            <div class="toggle-slider"></div>
+          </div>
+        </div>
       </nav>
     </header>
 
@@ -138,16 +138,12 @@
           <p>Норок</p>
         </div>
         <div class="animal-item">
-          <img
-            src="./assets/img/67d933465e5b1_20250318084806.svg"
-            alt="Лисицы"
-            class="animal-icon"
-          />
+          <img src="./assets/img/foxes.png" alt="Лисицы" class="animal-icon" />
           <p>Лисиц</p>
         </div>
         <div class="animal-item">
           <img
-            src="./assets/img/other.png"
+            src="./assets/img/exotic-animals.png"
             alt="Крупные кошачьи"
             class="animal-icon"
           />
@@ -216,78 +212,155 @@
       <p>В клинике предоставляется полный спектр услуг:</p>
       <div class="service-list">
         <div class="service-item">
-          <h3>Консультации</h3>
-          <p>
-            Профессиональные рекомендации по уходу за экзотическими животными.
-          </p>
+          <div
+            class="service-image"
+            style="background-image: url('/assets/img/photo/Consultations.png')"
+          ></div>
+          <div class="service-content">
+            <h3>Консультации</h3>
+            <p class="detailed-desc">
+              Профессиональные рекомендации по уходу за экзотическими животными.
+            </p>
+          </div>
         </div>
         <div class="service-item">
-          <h3>Первичный приём</h3>
-          <p>
-            Осмотр, сбор анамнеза, измерение физикальных показателей, назначение
-            диагностики и лечения.
-          </p>
+          <div
+            class="service-image"
+            style="background-image: url('/assets/img/photo/inital.png')"
+          ></div>
+          <div class="service-content">
+            <h3>Первичный приём</h3>
+            <p class="detailed-desc">
+              Осмотр, сбор анамнеза, измерение физикальных показателей,
+              назначение диагностики и лечения.
+            </p>
+          </div>
         </div>
         <div class="service-item">
-          <h3>Отоскопия</h3>
-          <p>
-            Безболезненный осмотр наружного слухового прохода и барабанной
-            перепонки.
-          </p>
+          <div
+            class="service-image"
+            style="background-image: url('/assets/img/photo/Otoscopy.png')"
+          ></div>
+          <div class="service-content">
+            <h3>Отоскопия</h3>
+            <p class="detailed-desc">
+              Безболезненный осмотр наружного слухового прохода и барабанной
+              перепонки.
+            </p>
+          </div>
         </div>
         <div class="service-item">
-          <h3>Диспансеризация</h3>
-          <p>
-            Плановые диагностические мероприятия для выявления заболеваний на
-            ранней стадии.
-          </p>
+          <div
+            class="service-image"
+            style="background-image: url('/assets/img/photo/Dispensary.png')"
+          ></div>
+          <div class="service-content">
+            <h3>Диспансеризация</h3>
+            <p class="detailed-desc">
+              Плановые диагностические мероприятия для выявления заболеваний на
+              ранней стадии.
+            </p>
+          </div>
         </div>
         <div class="service-item">
-          <h3>Вакцинация</h3>
-          <p>
-            Вакцинация хорьков, кроликов, енотов и других животных с учётом их
-            особенностей.
-          </p>
+          <div
+            class="service-image"
+            style="background-image: url('/assets/img/photo/Vaccination.png')"
+          ></div>
+          <div class="service-content">
+            <h3>Вакцинация</h3>
+            <p class="detailed-desc">
+              Вакцинация хорьков, кроликов, енотов и других животных с учётом их
+              особенностей.
+            </p>
+          </div>
         </div>
         <div class="service-item">
-          <h3>Стационарное наблюдение</h3>
-          <p>
-            Круглосуточный уход для животных в тяжёлом состоянии или после
-            операций.
-          </p>
+          <div
+            class="service-image"
+            style="background-image: url('/assets/img/photo/Hospital.jpg')"
+          ></div>
+          <div class="service-content">
+            <h3>Стационар</h3>
+            <p class="detailed-desc">
+              Круглосуточный уход для животных в тяжёлом состоянии или после
+              операций.
+            </p>
+          </div>
         </div>
         <div class="service-item">
-          <h3>Стоматология</h3>
-          <p>
-            Осмотр ротовой полости, диагностика и лечение (иногда под наркозом).
-          </p>
+          <div
+            class="service-image"
+            style="background-image: url('/assets/img/photo/Dentistry.png')"
+          ></div>
+          <div class="service-content">
+            <h3>Стоматология</h3>
+            <p class="detailed-desc">
+              Осмотр ротовой полости, диагностика и лечение (иногда под
+              наркозом).
+            </p>
+          </div>
         </div>
         <div class="service-item">
-          <h3>Дерматология</h3>
-          <p>Осмотр, диагностика и лечение кожных заболеваний.</p>
+          <div
+            class="service-image"
+            style="background-image: url('/assets/img/photo/Dermatology.png')"
+          ></div>
+          <div class="service-content">
+            <h3>Дерматология</h3>
+            <p class="detailed-desc">
+              Осмотр, диагностика и лечение кожных заболеваний.
+            </p>
+          </div>
         </div>
         <div class="service-item">
-          <h3>Хирургия</h3>
-          <p>
-            Кастрация, стерилизация и другие операции с использованием
-            безопасной анестезии.
-          </p>
+          <div
+            class="service-image"
+            style="background-image: url('/assets/img/photo/Surgery.png')"
+          ></div>
+          <div class="service-content">
+            <h3>Хирургия</h3>
+            <p class="detailed-desc">
+              Кастрация, стерилизация и другие операции с использованием
+              безопасной анестезии.
+            </p>
+          </div>
         </div>
         <div class="service-item">
-          <h3>Анестезия</h3>
-          <p>Контроль жизненно важных функций животного во время операций.</p>
+          <div
+            class="service-image"
+            style="background-image: url('/assets/img/photo/Anesthesia.png')"
+          ></div>
+          <div class="service-content">
+            <h3>Анестезия</h3>
+            <p class="detailed-desc">
+              Контроль жизненно важных функций животного во время операций.
+            </p>
+          </div>
         </div>
         <div class="service-item">
-          <h3>Травматология</h3>
-          <p>Лечение травм и повреждений.</p>
+          <div
+            class="service-image"
+            style="background-image: url('/assets/img/photo/Traumatology.png')"
+          ></div>
+          <div class="service-content">
+            <h3>Травматология</h3>
+            <p class="detailed-desc">Лечение травм и повреждений.</p>
+          </div>
         </div>
         <div class="service-item">
-          <h3>Цитология</h3>
-          <p>Диагностика на клеточном уровне.</p>
-        </div>
-        <div class="service-item">
-          <h3>Анализы</h3>
-          <p>Крови, бакпосевы, мочи, кала для точной диагностики.</p>
+          <div
+            class="service-image"
+            style="
+              background-image: url('/assets/img/photo/-tests-microscope.png');
+            "
+          ></div>
+          <div class="service-content">
+            <h3>Анализы</h3>
+            <p class="detailed-desc">
+              Крови, бакпосевы, мочи, кала для точной диагностики Цитология.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -312,21 +385,23 @@
     <!-- Фотогалерея -->
     <section id="gallery" class="gallery">
       <h2>Фотогалерея наших пациентов</h2>
-      <div class="carousel">
-        <div class="carousel-inner">
-          <!-- Дублируем последние 3 изображения в начало -->
-          <img src="./assets/img/photo/1.png" alt="Пациент 2" />
-          <img src="./assets/img/photo/2.png" alt="Пациент 3" />
-          <img src="./assets/img/photo/3.png" alt="Пациент 4" />
-          <!-- Оригинальные изображения -->
-          <img src="./assets/img/photo/4.png" alt="Пациент 1" />
-          <img src="./assets/img/photo/5.png" alt="Пациент 2" />
-          <img src="./assets/img/photo/6.png" alt="Пациент 3" />
-          <img src="./assets/img/photo/7.png" alt="Пациент 4" />
-          <!-- Дублируем первые 3 изображения в конец -->
-          <img src="./assets/img/photo/8.png" alt="Пациент 1" />
-          <img src="./assets/img/photo/9.png" alt="Пациент 2" />
-          <img src="./assets/img/photo/9.png" alt="Пациент 3" />
+      <div class="scroller" data-direction="left" data-speed="slow">
+        <div class="scroller__inner">
+          <img src="./assets/img/photo/pet1.jpg" alt="Пациент 1" />
+          <img src="./assets/img/photo/pet2.jpg" alt="Пациент 2" />
+          <img src="./assets/img/photo/pet3.jpg" alt="Пациент 3" />
+          <img src="./assets/img/photo/pet4.jpg" alt="Пациент 4" />
+          <img src="./assets/img/photo/pet5.jpg" alt="Пациент 5" />
+          <img src="./assets/img/photo/pet6.png" alt="Пациент 6" />
+          <img src="./assets/img/photo/pet7.png" alt="Пациент 7" />
+          <img src="./assets/img/photo/pet8.png" alt="Пациент 8" />
+          <img src="./assets/img/photo/pet9.png" alt="Пациент 9" />
+          <img src="./assets/img/photo/pet10.png" alt="Пациент 10" />
+          <img src="./assets/img/photo/pet11.png" alt="Пациент 11" />
+          <img src="./assets/img/photo/pet12.png" alt="Пациент 12" />
+          <img src="./assets/img/photo/pet13.png" alt="Пациент 13" />
+          <img src="./assets/img/photo/pet14.png" alt="Пациент 14" />
+          <img src="./assets/img/photo/pet15.png" alt="Пациент 15" />
         </div>
       </div>
     </section>
