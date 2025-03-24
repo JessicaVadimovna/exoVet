@@ -382,10 +382,11 @@ body.dark-theme .animal-item {
 .animal-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background-color: rgba(188, 196, 196, 0.5); /* Полупрозрачный фон */
 }
 
 .animal-icon {
-  width: 50px;
+  width: 55px;
   height: 50px;
   margin-right: 15px;
   transition: transform 0.3s ease;
@@ -397,74 +398,154 @@ body.dark-theme .animal-item {
 
 
 /* Почему выбирают нас? */
-.features-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
+
+.features-container {
+  position: relative;
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 50px 0;
 }
 
-.feature-item {
+.features-circle {
   position: relative;
+  width: 100%;
+  height: 500px; /* Высота контейнера */
+}
+
+/* Стили центрального круга */
+.center-title-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #e5acbf, #fff);
+  animation: pulse 2s infinite; /* Эффект пульсации */
+}
+
+.center-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+/* Псевдоэлементы для кругов */
+.center-title-wrapper::before,
+.center-title-wrapper::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #e5acbf, #fff);
+}
+
+.center-title-wrapper::before {
+  width: 250px;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+  animation: pulse 2s infinite 0.3s; /* Лёгкая задержка для внешнего круга */
+}
+
+.center-title-wrapper::after {
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.4;
+  animation: pulse 2s infinite 0.6s; /* Ещё большая задержка */
+}
+
+/* Эффект пульсации */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Общие стили для блоков feature */
+.feature {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+/* Позиции для каждого feature */
+.feature-1 {
+  top: 20%;
+  left: 8%;
+}
+
+.feature-2 {
+  top: 10%;
+  right: 10%;
+}
+
+.feature-3 {
+  bottom: 20%;
+  left: 10%;
+}
+
+.feature-4 {
+  bottom: 10%;
+  right: 10%;
+}
+
+.feature-5 {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Стили иконок */
+.feature-icon-wrapper {
+  margin-bottom: 10px;
+}
+
+.feature-icon img {
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* Стили текста */
+.feature-text {
   padding: 15px;
-  width: 350px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  border-radius: 15px;
+  max-width: 250px;
+  text-align: center;
+}
 
-  /* Эффект матового стекла */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(188, 196, 196, 0.5); /* Полупрозрачный фон */
-
-  /* Комплексные тени для глубины */
-  box-shadow:
-    inset -0.75px -0.5px 0 rgba(255, 255, 255, 0.1), /* Нижний и правый эффект */
-    inset 0.75px 0.5px 0 rgba(255, 255, 255, 0.025), /* Верхний и левый эффект */
-    3px 2px 10px rgba(0, 0, 0, 0.25), /* Внешняя тень */
-    inset 0 0 10px 5px rgba(255, 255, 255, 0.025), /* Короткий подповерхностный эффект */
-    inset 0 0 40px 5px rgba(255, 255, 255, 0.025); /* Длинный подповерхностный эффект */
+.feature-text p {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
 }
 
 body.dark-theme .feature-item {
   background-color: rgba(133, 144, 153, 0.5); /* Полупрозрачный фон для тёмной темы */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-}
-
-.feature-item:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    inset -0.75px -0.5px 0 rgba(255, 255, 255, 0.1),
-    inset 0.75px 0.5px 0 rgba(255, 255, 255, 0.025),
-    6px 4px 20px rgba(0, 0, 0, 0.3), /* Усиленная тень при наведении */
-    inset 0 0 10px 5px rgba(255, 255, 255, 0.025),
-    inset 0 0 40px 5px rgba(255, 255, 255, 0.025);
-}
-
-.feature-icon {
-  font-size: 30px;
-  margin-right: 15px;
-  transition: transform 0.3s ease;
-}
-
-.feature-icon img {
-  width: 50px;
-  height: 50px;
-}
-
-.feature-item:hover .feature-icon {
-  transform: rotate(15deg);
-}
-
-.feature-item p {
-  margin: 0;
-  font-size: 16px;
-  z-index: 1;
 }
 
 /* 
@@ -1177,3 +1258,51 @@ footer a:hover {
       font-size: 0.85rem;
     }
 }}
+
+
+
+/* Адаптив для маленьких экранов */
+@media (max-width: 768px) {
+  .features-circle {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .center-title-wrapper {
+    position: relative;
+    top: auto;
+    transform: none;
+    width: 150px;
+    height: 150px;
+  }
+
+  .center-title-wrapper::before {
+    width: 200px;
+    height: 200px;
+  }
+
+  .center-title-wrapper::after {
+    width: 250px;
+    height: 250px;
+  }
+
+  .feature {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 20px auto;
+    transform: none;
+    animation: none; /* Убираем плавание на маленьких экранах */
+  }
+
+  .feature-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .feature-text p {
+    font-size: 12px;
+  }
+}
