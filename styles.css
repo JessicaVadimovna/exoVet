@@ -961,6 +961,7 @@ body.dark-theme .price-item:hover .service-name {
   color: #a48899;
   text-align: right;
   flex: 1;
+  white-space: nowrap;
   background: linear-gradient(90deg, #a48899, #e5acbf);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1521,3 +1522,4 @@ body.dark-theme .service-price {
     margin-bottom: 20px; /* Добавляем отступ снизу, чтобы элементы не сливались */
   }
 }
+
