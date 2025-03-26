@@ -1120,7 +1120,7 @@ body.dark-theme .service-price {
   display: inline-block;
   font-size: 14px;
   color: #fff;
-  background-color: #0088cc;
+  background-color: #d8b6cd;
   padding: 8px 15px;
   border-radius: 20px;
   text-decoration: none;
@@ -1128,7 +1128,7 @@ body.dark-theme .service-price {
 }
 
 .subscribe-btn:hover {
-  background-color: #40c4ff;
+  background-color: #bb98af;
   transform: scale(1.05);
 }
 
@@ -1501,5 +1501,23 @@ body.dark-theme .service-price {
 
   .price-item {
     padding: 12px;
+  }
+}
+
+
+/* Медиазапрос для экранов шириной меньше 768px */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Ставим элементы в столбик */
+    align-items: flex-start;
+  }
+
+  .footer-map {
+    width: 100%; /* Карту растягиваем по ширине */
+    margin-top: 20px; /* Добавляем отступ сверху для разделения с другими элементами */
+  }
+
+  .footer-info {
+    margin-bottom: 20px; /* Добавляем отступ снизу, чтобы элементы не сливались */
   }
 }
