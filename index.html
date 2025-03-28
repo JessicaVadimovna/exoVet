@@ -48,11 +48,37 @@
         />
         <div class="hero-text">
           <h1>Ветеринарная клиника для экзотических животных</h1>
-          <p>
-            Мы заботимся о ваших необычных питомцах с любовью и
-            профессионализмом!
-          </p>
-          <button onclick="scrollToSection('about')">Узнать больше</button>
+          <div class="slider">
+            <div class="slide active">
+              <p>
+                Мы заботимся о ваших необычных питомцах с любовью и
+                профессионализмом!
+              </p>
+            </div>
+            <div class="slide">
+              <p>
+                Выбирая нас, вы получите профессиональную ветеринарную помощь
+              </p>
+            </div>
+            <div class="slide">
+              <p>
+                Часы работы: ежедневно с 10:00-20:00 (по предварительному
+                звонку)
+              </p>
+            </div>
+            <div class="slide">
+              <p>
+                Записаться на прием:
+                <a href="tel:+79526220616">+7 (952) 622-06-16</a>
+              </p>
+            </div>
+          </div>
+          <div class="pagination">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
         </div>
       </div>
     </section>
@@ -60,10 +86,43 @@
     <!-- О нас -->
     <section id="about" class="about">
       <h2>О нас</h2>
-      <p>
-        ExoVet — это специализированная клиника, которая предоставляет
-        экспертную ветеринарную помощь исключительно экзотическим животным.
-      </p>
+      <div class="exovet-container">
+        <p class="exovet-description">
+          ExoVet - это специализированная клиника, которая предоставляет
+          экспертную ветеринарную помощь исключительно экзотическим животным.
+        </p>
+        <div class="exovet-features">
+          <div class="feature-item">
+            <img
+              src="/assets/img/icon/stethoscope-icon.png"
+              alt="Диагностика"
+            />
+            <p class="feature-text">Современные методы диагностики и лечения</p>
+          </div>
+          <div class="feature-item">
+            <img src="/assets/img/icon/hospital-icon.png" alt="Операционная" />
+            <p class="feature-text">Операционная с газовой анестезией</p>
+          </div>
+          <div class="feature-item">
+            <img
+              src="/assets/img/icon/rare-veterinary-services-icon.png"
+              alt="Редкие услуги"
+            />
+            <p class="feature-text">Редкие ветеринарные услуги</p>
+          </div>
+          <div class="feature-item">
+            <img
+              src="/assets/img/icon/female-veterinarian-icon.png"
+              alt="Врачи"
+            />
+            <p class="feature-text">Квалифицированные врачи</p>
+          </div>
+          <div class="feature-item">
+            <img src="/assets/img/icon/heart-icon.png" alt="Забота" />
+            <p class="feature-text">Бережное отношение к питомцам</p>
+          </div>
+        </div>
+      </div>
       <h3>Мы принимаем:</h3>
       <div class="animal-list">
         <div class="animal-item">
@@ -166,83 +225,6 @@
           <p>Крупных кошачьих и т. д.</p>
         </div>
       </div>
-
-      <div class="features-container">
-        <div class="features-circle">
-          <div class="center-title-wrapper">
-            <h3 class="center-title">Почему выбирают нас?</h3>
-          </div>
-
-          <!-- Элемент 1 -->
-          <div class="feature feature-1">
-            <div class="feature-icon-wrapper">
-              <span class="feature-icon">
-                <img src="./assets/img/icon/stethoscope-icon.png" alt="" />
-              </span>
-            </div>
-            <div class="feature-text">
-              <p>Современные методы диагностики и лечения</p>
-            </div>
-          </div>
-
-          <!-- Элемент 2 -->
-          <div class="feature feature-2">
-            <div class="feature-icon-wrapper">
-              <span class="feature-icon">
-                <img src="./assets/img/icon/hospital-icon.png" alt="" />
-              </span>
-            </div>
-            <div class="feature-text">
-              <p>
-                Операционная с современным оборудованием и безопасной газовой
-                анестезией
-              </p>
-            </div>
-          </div>
-
-          <!-- Элемент 3 -->
-          <div class="feature feature-3">
-            <div class="feature-icon-wrapper">
-              <span class="feature-icon">
-                <img
-                  src="./assets/img/icon/rare-veterinary-services-icon.png"
-                  alt=""
-                />
-              </span>
-            </div>
-            <div class="feature-text">
-              <p>Редкие ветеринарные услуги</p>
-            </div>
-          </div>
-
-          <!-- Элемент 4 -->
-          <div class="feature feature-4">
-            <div class="feature-icon-wrapper">
-              <span class="feature-icon">
-                <img
-                  src="./assets/img/icon/female-veterinarian-icon.png"
-                  alt=""
-                />
-              </span>
-            </div>
-            <div class="feature-text">
-              <p>Квалифицированные врачи, постоянно совершенствующие знания</p>
-            </div>
-          </div>
-
-          <!-- Элемент 5 -->
-          <div class="feature feature-5">
-            <div class="feature-icon-wrapper">
-              <span class="feature-icon">
-                <img src="./assets/img/icon/heart-icon.png" alt="" />
-              </span>
-            </div>
-            <div class="feature-text">
-              <p>Бережное и заботливое отношение к вашим питомцам</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Услуги -->
@@ -251,26 +233,26 @@
       <p>В клинике предоставляется полный спектр услуг:</p>
       <div class="service-list">
         <div class="service-item">
-          <div
-            class="service-image"
-            style="
-              background-image: url('./assets/img/photo/Consultations.png');
-            "
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Консультации</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">
               Профессиональные рекомендации по уходу за экзотическими животными.
             </p>
           </div>
         </div>
         <div class="service-item">
-          <div
-            class="service-image"
-            style="background-image: url('./assets/img/photo/inital.png')"
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Первичный приём</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">
               Осмотр, сбор анамнеза, измерение физикальных показателей,
               назначение диагностики и лечения.
@@ -278,12 +260,13 @@
           </div>
         </div>
         <div class="service-item">
-          <div
-            class="service-image"
-            style="background-image: url('./assets/img/photo/Otoscopy.png')"
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Отоскопия</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">
               Безболезненный осмотр наружного слухового прохода и барабанной
               перепонки.
@@ -291,12 +274,13 @@
           </div>
         </div>
         <div class="service-item">
-          <div
-            class="service-image"
-            style="background-image: url('./assets/img/photo/Dispensary.png')"
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Диспансеризация</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">
               Плановые диагностические мероприятия для выявления заболеваний на
               ранней стадии.
@@ -304,12 +288,13 @@
           </div>
         </div>
         <div class="service-item">
-          <div
-            class="service-image"
-            style="background-image: url('./assets/img/photo/Vaccination.png')"
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Вакцинация</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">
               Вакцинация хорьков, кроликов, енотов и других животных с учётом их
               особенностей.
@@ -317,12 +302,13 @@
           </div>
         </div>
         <div class="service-item">
-          <div
-            class="service-image"
-            style="background-image: url('./assets/img/photo/Hospital.jpg')"
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Стационар</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">
               Круглосуточный уход для животных в тяжёлом состоянии или после
               операций.
@@ -330,12 +316,13 @@
           </div>
         </div>
         <div class="service-item">
-          <div
-            class="service-image"
-            style="background-image: url('./assets/img/photo/Dentistry.png')"
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Стоматология</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">
               Осмотр ротовой полости, диагностика и лечение (иногда под
               наркозом).
@@ -343,24 +330,26 @@
           </div>
         </div>
         <div class="service-item">
-          <div
-            class="service-image"
-            style="background-image: url('./assets/img/photo/Dermatology.png')"
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Дерматология</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">
               Осмотр, диагностика и лечение кожных заболеваний.
             </p>
           </div>
         </div>
         <div class="service-item">
-          <div
-            class="service-image"
-            style="background-image: url('./assets/img/photo/Surgery.png')"
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Хирургия</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">
               Кастрация, стерилизация и другие операции с использованием
               безопасной анестезии.
@@ -368,38 +357,39 @@
           </div>
         </div>
         <div class="service-item">
-          <div
-            class="service-image"
-            style="background-image: url('./assets/img/photo/Anesthesia.png')"
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Анестезия</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">
               Контроль жизненно важных функций животного во время операций.
             </p>
           </div>
         </div>
         <div class="service-item">
-          <div
-            class="service-image"
-            style="background-image: url('./assets/img/photo/Traumatology.png')"
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Травматология</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">Лечение травм и повреждений.</p>
           </div>
         </div>
         <div class="service-item">
-          <div
-            class="service-image"
-            style="
-              background-image: url('./assets/img/photo/-tests-microscope.png');
-            "
-          ></div>
-          <div class="service-content">
+          <div class="service-header">
             <h3>Анализы</h3>
+            <button class="accordion-toggle" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <div class="service-content">
             <p class="detailed-desc">
-              Крови, бакпосевы, мочи, кала для точной диагностики Цитология.
+              Крови, бакпосевы, мочи, кала для точной диагностики. Цитология.
             </p>
           </div>
         </div>
@@ -411,38 +401,29 @@
       <h2>Наши специалисты</h2>
       <div class="specialist-list">
         <div class="specialist-item">
-          <img src="https://via.placeholder.com/150" alt="Ветеринар 1" />
-          <h3>Анна Иванова</h3>
+          <img src="./assets/img/photo/vet1.jpeg" alt="Ветеринар 1" />
+          <h3>Инна Иванова</h3>
           <p>Специалист по рептилиям, стаж 10 лет.</p>
         </div>
         <div class="specialist-item">
-          <img src="https://via.placeholder.com/150" alt="Ветеринар 2" />
-          <h3>Михаил Петров</h3>
+          <img src="./assets/img/photo/vet2.jpeg" alt="Ветеринар 2" />
+          <h3>Анна Романова</h3>
           <p>Эксперт по экзотическим птицам, стаж 8 лет.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Фотогалерея -->
-    <section id="gallery" class="gallery">
-      <h2>Фотогалерея наших пациентов</h2>
-      <div class="scroller" data-direction="left" data-speed="slow">
-        <div class="scroller__inner">
-          <img src="./assets/img/photo/pet1.jpg" alt="Пациент 1" />
-          <img src="./assets/img/photo/pet2.jpg" alt="Пациент 2" />
-          <img src="./assets/img/photo/pet3.jpg" alt="Пациент 3" />
-          <img src="./assets/img/photo/pet4.jpg" alt="Пациент 4" />
-          <img src="./assets/img/photo/pet5.jpg" alt="Пациент 5" />
-          <img src="./assets/img/photo/pet6.png" alt="Пациент 6" />
-          <img src="./assets/img/photo/pet7.png" alt="Пациент 7" />
-          <img src="./assets/img/photo/pet8.png" alt="Пациент 8" />
-          <img src="./assets/img/photo/pet9.png" alt="Пациент 9" />
-          <img src="./assets/img/photo/pet10.png" alt="Пациент 10" />
-          <img src="./assets/img/photo/pet11.png" alt="Пациент 11" />
-          <img src="./assets/img/photo/pet12.png" alt="Пациент 12" />
-          <img src="./assets/img/photo/pet13.png" alt="Пациент 13" />
-          <img src="./assets/img/photo/pet14.png" alt="Пациент 14" />
-          <img src="./assets/img/photo/pet15.png" alt="Пациент 15" />
+        <div class="specialist-item">
+          <img src="./assets/img/photo/vet2.jpeg" alt="Ветеринар 2" />
+          <h3>Лариса Иванова</h3>
+          <p>Эксперт по экзотическим птицам, стаж 8 лет.</p>
+        </div>
+        <div class="specialist-item">
+          <img src="./assets/img/photo/vet2.jpeg" alt="Ветеринар 2" />
+          <h3>Мария Петрова</h3>
+          <p>Эксперт по экзотическим птицам, стаж 8 лет.</p>
+        </div>
+        <div class="specialist-item">
+          <img src="./assets/img/photo/vet1.jpeg" alt="Ветеринар 1" />
+          <h3>Инна Иванова</h3>
+          <p>Специалист по рептилиям, стаж 10 лет.</p>
         </div>
       </div>
     </section>
@@ -520,7 +501,7 @@
     </section>
 
     <!-- Футер -->
-    <footer class="footer">
+    <footer id="contacts" class="footer">
       <div class="footer-container">
         <div class="footer-content">
           <div class="footer-info">

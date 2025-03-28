@@ -247,70 +247,110 @@ body.dark-theme .toggle-switch:hover .toggle-slider {
 */
 
 .hero {
-  background-color: #dadee2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
+  background: linear-gradient(135deg, #f5f6f6 40%, #dadee2 100%);
+  padding: 50px 20px;
+  text-align: center;
+  position: relative;
 }
 
 body.dark-theme .hero {
-  background-color: #636e7a;
+  background: linear-gradient(135deg, #69737f 40%, #636e7a 100%);
 }
 
 .hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  max-width: 900px;
-  gap: 20px;
 }
 
 .hero-image {
-  width: 300px;
+  max-width: 350px;
+  width: 100%;
   height: auto;
-  border-radius: 10px;
-}
-
-.hero-text {
-  max-width: 500px;
-}
-
-.hero h1 {
-  font-size: 36px;
   margin-bottom: 20px;
-  color: #69737f;
+  transition: transform 0.3s ease;
 }
 
-.hero p {
+.hero-text h1 {
+  font-size: 36px;
+  color: #a48899;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+body.dark-theme .hero-text h1 {
+  color: #e5acbf;
+}
+
+.slider {
+  width: 100%;
+  min-height: 60px; /* Минимальная высота */
+  position: relative;
+  transition: height 0.3s ease; /* Плавное изменение высоты */
+}
+
+.slide {
+  display: none; /* Все слайды скрыты по умолчанию */
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Плавное появление */
+}
+
+.slide.active {
+  display: block; /* Активный слайд виден */
+  opacity: 1;
+}
+
+.slide p {
   font-size: 18px;
-  margin-bottom: 30px;
-}
-
-.hero button {
-  background-color: #a48899;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-body.dark-theme .hero {
-  color: #f5f6f6;
-}
-
-body.dark-theme .hero button {
-  background-color: #e5acbf;
-}
-
-.hero button:hover {
-  background-color: #8ca4ac;
-}
-
-body.dark-theme .hero button:hover {
-  background-color: #f5f6f6;
   color: #69737f;
+  margin: 0;
+  padding: 15px 20px;
+  background: rgba(229, 172, 191, 0.15);
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+body.dark-theme .slide p {
+  color: #f5f6f6;
+  background: rgba(229, 172, 191, 0.25);
+}
+
+.slide p a {
+  color: #a48899;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.slide p a:hover {
+  text-decoration: underline;
+}
+
+body.dark-theme .slide p a {
+  color: #e5acbf;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #a48899;
 }
 
 /* 
@@ -319,299 +359,241 @@ body.dark-theme .hero button:hover {
 ==============================================
 */
 
+/* Стили для секции "О нас" */
 .about {
   padding: 50px 20px;
-  background-color: #f5f6f6;
+  background: linear-gradient(135deg, #f5f6f6 40%, #dadee2 100%);
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
+/* Тёмная тема для секции */
 body.dark-theme .about {
-  background-color: #69737f;
+  background: linear-gradient(135deg, #69737f 40%, #636e7a 100%);
 }
 
+/* Стили для заголовка секции */
 .about h2 {
   color: #a48899;
   margin-bottom: 20px;
   font-size: 36px;
   letter-spacing: 1px;
+  position: relative;
+  padding-left: 15px;
+  font-weight: 700;
 }
 
+/* Тёмная тема для заголовка */
 body.dark-theme .about h2 {
   color: #e5acbf;
 }
 
-.about h3 {
-  color: #a48899;
-  margin: 30px 0 15px;
-  font-size: 24px;
-  position: relative;
+.exovet-container {
+  padding: 20px;
+  text-align: center;
 }
 
-body.dark-theme .about h3 {
-  color: #e5acbf;
+.exovet-description {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #333;
+  line-height: 1.6;
 }
 
+.exovet-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  padding: 1rem;
+  transition: transform 0.2s;
+}
+
+.feature-item:hover {
+  transform: scale(1.1);
+}
+
+.feature-item img {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 1rem;
+}
+
+.feature-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #444;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Контейнер для карточек */
 .animal-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 30px;
   justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* Стили для карточек */
 .animal-item {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 10px;
+  background: linear-gradient(145deg, #fff, #f0f2f5);
+  padding: 20px;
+  border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 350px; /* Увеличенный размер */
   transition: all 0.3s ease;
   overflow: hidden;
   cursor: pointer;
 }
 
+/* Тёмная тема для карточек */
 body.dark-theme .animal-item {
-  background-color: #859099;
+  background: linear-gradient(145deg, #859099, #6e7884);
 }
 
+/* Эффект при наведении */
 .animal-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  background-color: rgba(188, 196, 196, 0.5); /* Полупрозрачный фон */
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(240, 242, 245, 0.8));
 }
 
+/* Тёмная тема для эффекта при наведении */
+body.dark-theme .animal-item:hover {
+  background: linear-gradient(145deg, rgba(133, 144, 153, 0.8), rgba(110, 120, 132, 0.8));
+}
+
+/* Стили для иконок */
 .animal-icon {
-  width: 55px;
-  height: 50px;
-  margin-right: 15px;
+  width: 70px; /* Увеличенный размер */
+  height: auto;
+  margin-right: 20px;
   transition: transform 0.3s ease;
 }
 
+/* Эффект при наведении на иконку */
 .animal-item:hover .animal-icon {
   transform: scale(1.1);
 }
 
-
-/* Почему выбирают нас? */
-
-.features-container {
-  position: relative;
-  max-width: 800px;
-  margin: 100px auto;
-  padding: 50px 0;
-}
-
-.features-circle {
-  position: relative;
-  width: 100%;
-  height: 500px; /* Высота контейнера */
-}
-
-/* Стили центрального круга */
-.center-title-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  border-radius: 50%;
-  background: linear-gradient(to bottom, #e5acbf, #fff);
-  animation: pulse 2s infinite; /* Эффект пульсации */
-}
-
-.center-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin: 0;
-  text-align: center;
-}
-
-/* Псевдоэлементы для кругов */
-.center-title-wrapper::before,
-.center-title-wrapper::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(to bottom, #e5acbf, #fff);
-}
-
-.center-title-wrapper::before {
-  width: 250px;
-  height: 250px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.7;
-  animation: pulse 2s infinite 0.3s; /* Лёгкая задержка для внешнего круга */
-}
-
-.center-title-wrapper::after {
-  width: 300px;
-  height: 300px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.4;
-  animation: pulse 2s infinite 0.6s; /* Ещё большая задержка */
-}
-
-/* Эффект пульсации */
-@keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.05);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-/* Общие стили для блоков feature */
-.feature {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 5;
-}
-
-/* Позиции для каждого feature */
-.feature-1 {
-  top: 20%;
-  left: 8%;
-}
-
-.feature-2 {
-  top: 10%;
-  right: 10%;
-}
-
-.feature-3 {
-  bottom: 20%;
-  left: 10%;
-}
-
-.feature-4 {
-  bottom: 10%;
-  right: 10%;
-}
-
-.feature-5 {
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Стили иконок */
-.feature-icon-wrapper {
-  margin-bottom: 10px;
-}
-
-.feature-icon img {
-  width: 50px;
-  height: 50px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 50%;
-  padding: 10px;
-}
-
-/* Стили текста */
-.feature-text {
-  padding: 15px;
-  border-radius: 15px;
-  max-width: 250px;
-  text-align: center;
-}
-
-.feature-text p {
-  font-size: 14px;
-  color: #333;
-  margin: 0;
-}
-
-body.dark-theme .feature-item {
-  background-color: rgba(133, 144, 153, 0.5); /* Полупрозрачный фон для тёмной темы */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
 
 /* 
 ==============================================
 8. Services Section
 ==============================================
 */
-body.dark-theme .services {
-  background-color: #636e7a;
-}
-
-body.dark-theme .service-item {
-  background-color: #859099;
-}
-
-/* Стили для секции услуг */
+/* Стили для секции "Услуги" */
 .services {
   padding: 50px 20px;
   text-align: center;
-  background-color: #f5f7fa;
+  background: linear-gradient(135deg, #f5f7fa 40%, #dadee2 100%);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Тёмная тема для секции */
+body.dark-theme .services {
+  background: linear-gradient(135deg, #636e7a 40%, #69737f 100%);
+}
+
+/* Стили для заголовка */
 .services h2 {
-    color: #a48899;
-    margin-bottom: 20px;
-    font-size: 36px;
-    letter-spacing: 1px;
+  color: #a48899;
+  margin-bottom: 20px;
+  font-size: 36px;
+  letter-spacing: 1px;
+  position: relative;
+  padding-left: 15px;
+  font-weight: 700;
 }
 
+/* Тёмная тема для заголовка */
+body.dark-theme .services h2 {
+  color: #e5acbf;
+}
+
+body.dark-theme .services h2::before {
+  background: linear-gradient(to bottom, #e5acbf, #dadee2);
+}
+
+/* Стили для описания секции */
 .services p {
+  font-size: 18px;
+  color: #69737f;
   margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Тёмная тема для описания */
+body.dark-theme .services p {
+  color: #f5f6f6;
+}
+
+/* Контейнер для карточек услуг */
 .service-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* Стили для карточек услуг */
 .service-item {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(145deg, #fff, #f0f2f5);
 }
 
+/* Тёмная тема для карточек */
+body.dark-theme .service-item {
+  background: linear-gradient(145deg, #859099, #6e7884);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Эффект при наведении */
 .service-item:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Стили для изображений услуг */
 .service-image {
   width: 100%;
   height: 200px;
   background-size: cover;
   background-position: center;
-  position: relative;
-  transition: all 0.3s ease;
+  transition: filter 0.3s ease;
 }
 
+/* Затемнение изображения при наведении */
 .service-item:hover .service-image {
   filter: brightness(50%);
 }
 
+/* Стили для контента услуг */
 .service-content {
   position: absolute;
   bottom: 0;
@@ -624,35 +606,46 @@ body.dark-theme .service-item {
   transition: all 0.3s ease;
 }
 
+/* Изменение фона контента при наведении */
+.service-item:hover .service-content {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+}
+
+/* Стили для заголовков услуг */
 .service-content h3 {
   font-size: 1.2rem;
   margin: 0;
   text-transform: uppercase;
 }
 
+/* Стили для краткого описания */
 .short-desc {
   font-size: 0.9rem;
   margin: 5px 0 0;
   display: block;
+  transition: opacity 0.3s ease;
 }
 
+/* Стили для подробного описания */
 .detailed-desc {
-  display: none;
   font-size: 0.9rem;
   margin: 5px 0 0;
-}
-
-.service-item:hover .service-content {
-  background: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-}
-
-.service-item:hover .short-desc {
   display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
+/* Показ подробного описания при наведении */
 .service-item:hover .detailed-desc {
   display: block;
+  opacity: 1;
+}
+
+/* Скрытие краткого описания при наведении */
+.service-item:hover .short-desc {
+  display: none;
+  opacity: 0;
 }
 
 /* 
@@ -661,32 +654,112 @@ body.dark-theme .service-item {
 ==============================================
 */
 
+/* Стили для секции "Специалисты" */
 .specialists {
-  background-color: #f5f6f6;
+  background: linear-gradient(135deg, #f5f6f6 40%, #dadee2 100%);
   text-align: center;
+  padding: 70px 20px;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Темная тема для секции */
 body.dark-theme .specialists {
-  background-color: #69737f;
+  background: linear-gradient(135deg, #69737f 40%, #636e7a 100%);
 }
 
+/* Стили для заголовка */
+.specialists h2 {
+  color: #a48899;
+  font-size: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  padding-left: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+/* Темная тема для заголовка */
+body.dark-theme .specialists h2 {
+  color: #e5acbf;
+}
+
+body.dark-theme .specialists h2::before {
+  background: linear-gradient(to bottom, #e5acbf, #dadee2);
+}
+
+/* Контейнер для карточек специалистов */
 .specialist-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
 }
 
+/* Стили для карточек специалистов */
 .specialist-item {
-  background-color: #fff;
-  padding: 20px;
-  width: 200px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 280px;
+  max-width: 320px;
+  background: linear-gradient(145deg, #fff, #f0f2f5);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  text-align: center;
 }
 
+/* Темная тема для карточек */
 body.dark-theme .specialist-item {
-  background-color: #859099;
+  background: linear-gradient(145deg, #859099, #6e7884);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Анимация при наведении */
+.specialist-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для изображений */
+.specialist-item img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #e5acbf;
+}
+
+/* Темная тема для изображений */
+body.dark-theme .specialist-item img {
+  border-color: #dadee2;
+}
+
+/* Стили для имен специалистов */
+.specialist-item h3 {
+  color: #a48899;
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Темная тема для имен */
+body.dark-theme .specialist-item h3 {
+  color: #e5acbf;
+}
+
+/* Стили для описаний */
+.specialist-item p {
+  color: #69737f;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Темная тема для описаний */
+body.dark-theme .specialist-item p {
+  color: #f5f6f6;
 }
 
 /* 
@@ -694,80 +767,7 @@ body.dark-theme .specialist-item {
 10. Gallery Section
 ==============================================
 */
-.gallery {
-  padding: 2rem;
-}
 
-.scroller {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.scroller__inner {
-  padding: 1rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.scroller__inner img {
-  height: 200px; /* Задайте желаемую высоту */
-  object-fit: cover;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem -0.25rem var(--clr-primary-900);
-}
-
-.scroller[data-animated=true] {
-  overflow: hidden;
-  -webkit-mask: linear-gradient(
-    90deg,
-    transparent,
-    white 20%,
-    white 80%,
-    transparent
-  );
-  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
-}
-
-.scroller[data-animated=true] .scroller__inner {
-  width: max-content;
-  flex-wrap: nowrap;
-  animation: 
-    scroll 
-    var(--_animation-duration, 40s) 
-    var(--_animation-direction, forwards) 
-    linear 
-    infinite;
-}
-
-.scroller[data-direction="left"] {
-  --_animation-direction: forwards;
-}
-
-.scroller[data-speed="slow"] {
-  --_animation-duration: 60s; /* Увеличил длительность для более плавного эффекта */
-}
-
-@keyframes scroll {
-  to {
-    transform: translate(calc(-50% - 0.5rem));
-  }
-}
-
-/* Базовые стили */
-:root {
-  --clr-neutral-100: hsl(0, 0%, 100%);
-  --clr-primary-100: hsl(205, 15%, 58%);
-  --clr-primary-400: hsl(215, 25%, 27%);
-  --clr-primary-800: hsl(217, 33%, 17%);
-  --clr-primary-900: hsl(218, 33%, 9%);
-}
-
-h2 {
-  text-align: center;
-  color: var(--clr-neutral-100);
-  margin-bottom: 2rem;
-}
 /* 
 ==============================================
 11. Prices Section
@@ -1264,9 +1264,9 @@ body.dark-theme .service-price {
   }
 
   /* Hero section */
-  .hero-content {
+  /* .hero-content {
     flex-direction: column;
-  }
+  } */
 
   /* About section */
   .animal-item, .feature-item {
@@ -1522,4 +1522,54 @@ body.dark-theme .service-price {
     margin-bottom: 20px; /* Добавляем отступ снизу, чтобы элементы не сливались */
   }
 }
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .specialist-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px 15px;
+  }
+  .hero-text h1 {
+    font-size: 28px;
+  }
+  .slide p {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+  .hero-image {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 24px;
+  }
+  .slide p {
+    font-size: 14px;
+  }
+  .hero-image {
+    width: 100px;
+  }
+}
+
 

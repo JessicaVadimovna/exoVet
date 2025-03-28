@@ -110,3 +110,48 @@ function addAnimation() {
     });
   });
 }
+
+function scrollToSection(sectionId) {
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Слайдер
+
+document.addEventListener('DOMContentLoaded', function () {
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const slider = document.querySelector('.slider');
+  let currentSlide = 0;
+  let slideInterval = setInterval(nextSlide, 5000);
+
+  // Функция для показа слайда
+  function showSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+
+    currentSlide = (index + slides.length) % slides.length; // Цикличность
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+
+    // Устанавливаем высоту слайдера под активный слайд
+    const activeSlideHeight = slides[currentSlide].offsetHeight;
+    slider.style.height = `${activeSlideHeight}px`;
+  }
+
+  // Переключение на следующий слайд
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  // Инициализация
+  showSlide(currentSlide); // Показываем первый слайд и задаем высоту
+
+  // Обработчики кликов на точки
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      showSlide(index);
+      slideInterval = setInterval(nextSlide, 5000);
+    });
+  });
+});
