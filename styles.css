@@ -126,42 +126,22 @@ nav {
   position: relative;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-  margin-right: 40px;
+.logo_name img{
+  width: 50%;
+  height: auto;
 }
 
-.nav-menu {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-grow: 1;
+/* Переменные для цветов */
+body {
+  --link-color: #fff;
+  --link-color-rgb: 255, 255, 255;
 }
 
-.nav-menu li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+body.dark-theme {
+  --link-color: #e5acbf;
+  --link-color-rgb: 229, 172, 191;
 }
 
-.nav-menu li a:hover {
-  color: #a48899;
-}
-
-body.dark-theme .nav-menu li a {
-  color: #e5acbf;
-}
-
-body.dark-theme .nav-menu li a:hover {
-  color: #f5f6f6;
-}
-
-/* Burger menu for mobile */
 .menu-toggle {
   display: none;
   font-size: 24px;
@@ -169,8 +149,71 @@ body.dark-theme .nav-menu li a:hover {
   color: #fff;
 }
 
-body.dark-theme .menu-toggle {
+/* Основные стили ссылок */
+/* Навигация */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-grow: 1;
+  white-space: nowrap;
+}
+
+.nav-menu li {
+  margin: 0;
+}
+
+/* Светлая тема */
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  padding: 0 10px;
+  position: relative;
+  transition: color 180ms ease-in-out;
+}
+
+.nav-menu:hover a {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.nav-menu a:hover {
+  color: #fff;
+}
+
+.nav-menu a:after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0;
+  background: #fff;
+  bottom: 0;
+  left: 10px;
+  transition: width 180ms ease-in-out;
+}
+
+.nav-menu a:hover:after {
+  width: calc(100% - 20px);
+}
+
+/* Темная тема */
+body.dark-theme .nav-menu a {
   color: #e5acbf;
+}
+
+body.dark-theme .nav-menu:hover a {
+  color: rgba(229, 172, 191, 0.35);
+}
+
+body.dark-theme .nav-menu a:hover {
+  color: #e5acbf;
+}
+
+body.dark-theme .nav-menu a:after {
+  background: #e5acbf;
 }
 
 /* 
@@ -582,7 +625,7 @@ body.dark-theme .service-item {
 /* Стили для изображений услуг */
 .service-image {
   width: 100%;
-  height: 200px;
+  height: 250px;
   background-size: cover;
   background-position: center;
   transition: filter 0.3s ease;
@@ -595,10 +638,6 @@ body.dark-theme .service-item {
 
 /* Стили для контента услуг */
 .service-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
   padding: 10px;
@@ -608,7 +647,7 @@ body.dark-theme .service-item {
 
 /* Изменение фона контента при наведении */
 .service-item:hover .service-content {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 209, 230, 0.8);
   padding: 20px;
 }
 
@@ -632,8 +671,6 @@ body.dark-theme .service-item {
   font-size: 0.9rem;
   margin: 5px 0 0;
   display: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 /* Показ подробного описания при наведении */
@@ -647,6 +684,8 @@ body.dark-theme .service-item {
   display: none;
   opacity: 0;
 }
+
+
 
 /* 
 ==============================================
@@ -767,6 +806,89 @@ body.dark-theme .specialist-item p {
 10. Gallery Section
 ==============================================
 */
+/* Gallery section*/
+.carousel-container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 50px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.carousel-container h2 {
+  color: #a48899;
+  font-size: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  padding-left: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.carousel {
+  display: flex;
+  gap: 30px; /* Отступы между элементами */
+  transition: transform 0.5s ease;
+  padding: 20px 0;
+}
+
+.carousel-item p img{
+  width: 35px;
+  height: auto;
+}
+
+.carousel-item {
+  min-width: calc(33.33% - 20px); /* Учитываем gap */
+  background: linear-gradient(145deg, #fff, #f0f2f5);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  text-align: center;
+}
+
+body.dark-theme .carousel-item {
+  background: linear-gradient(145deg, #859099, #6e7884);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.05);
+}
+
+.carousel-item p {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #69737f;
+  letter-spacing: 0.5px;
+}
+
+body.dark-theme .carousel-item p {
+  color: #f5f6f6;
+}
+
+.carousel-item:hover p {
+  color: #a48899;
+}
+
+body.dark-theme .carousel-item:hover p {
+  color: #e5acbf;
+}
 
 /* 
 ==============================================
@@ -1319,6 +1441,8 @@ body.dark-theme .service-price {
     border-radius: 5px 5px 0 0;
   }
 
+
+
   /* Price section */
   .table-wrapper {
     width: 100%;
@@ -1341,17 +1465,6 @@ body.dark-theme .service-price {
   .contacts-container {
     grid-template-columns: 1fr;
     padding: 0 15px;
-  }
-
-  /* Carousel */
-  .carousel {
-    width: 100%; /* На маленьких экранах занимает всю ширину */
-    max-width: 300px;
-  }
-
-  .carousel-inner img {
-    width: 100%; /* Изображение адаптируется к ширине контейнера */
-    height: auto; /* Сохраняем пропорции */
   }
 }
 
@@ -1573,3 +1686,50 @@ body.dark-theme .service-price {
 }
 
 
+@media (max-width: 768px) {
+  .carousel-container {
+      padding: 0 40px;
+  }
+
+  .carousel-item {
+      min-width: calc(50% - 15px);
+  }
+
+  .carousel-item img {
+      height: 240px;
+  }
+
+  .carousel {
+      gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+      padding: 0 30px;
+  }
+
+  .carousel-item {
+      min-width: calc(100% - 10px);
+  }
+
+  .carousel-item img {
+      height: 300px;
+  }
+
+  .carousel {
+      gap: 10px;
+  }
+}
+
+/* Адаптивность сердечек */
+@media (max-width: 768px) {
+  .carousel-item p {
+    font-size: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .carousel-item p {
+    font-size: 20px;
+  }
+}
