@@ -438,10 +438,12 @@ body.dark-theme .about h2 {
 }
 
 .exovet-description {
+  display: inline-block;
   font-size: 1.1rem;
   margin-bottom: 2rem;
   color: #333;
   line-height: 1.6;
+  border-bottom: 3px solid rgba(229, 172, 191, 0.15);
 }
 
 .exovet-features {
@@ -543,6 +545,7 @@ body.dark-theme .animal-item:hover {
 ==============================================
 */
 /* Стили для секции "Услуги" */
+/* Стили для секции "Услуги" */
 .services {
   padding: 50px 20px;
   text-align: center;
@@ -551,12 +554,10 @@ body.dark-theme .animal-item:hover {
   overflow: hidden;
 }
 
-/* Тёмная тема для секции */
 body.dark-theme .services {
   background: linear-gradient(135deg, #636e7a 40%, #69737f 100%);
 }
 
-/* Стили для заголовка */
 .services h2 {
   color: #a48899;
   margin-bottom: 20px;
@@ -567,16 +568,10 @@ body.dark-theme .services {
   font-weight: 700;
 }
 
-/* Тёмная тема для заголовка */
 body.dark-theme .services h2 {
   color: #e5acbf;
 }
 
-body.dark-theme .services h2::before {
-  background: linear-gradient(to bottom, #e5acbf, #dadee2);
-}
-
-/* Стили для описания секции */
 .services p {
   font-size: 18px;
   color: #69737f;
@@ -586,12 +581,10 @@ body.dark-theme .services h2::before {
   margin-right: auto;
 }
 
-/* Тёмная тема для описания */
 body.dark-theme .services p {
   color: #f5f6f6;
 }
 
-/* Контейнер для карточек услуг */
 .service-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -600,92 +593,98 @@ body.dark-theme .services p {
   margin: 0 auto;
 }
 
-/* Стили для карточек услуг */
 .service-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(145deg, #fff, #f0f2f5);
-}
-
-/* Тёмная тема для карточек */
-body.dark-theme .service-item {
-  background: linear-gradient(145deg, #859099, #6e7884);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Эффект при наведении */
-.service-item:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Стили для изображений услуг */
-.service-image {
   width: 100%;
-  height: 250px;
-  background-size: cover;
-  background-position: center;
-  transition: filter 0.3s ease;
+  min-height: 250px;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Затемнение изображения при наведении */
-.service-item:hover .service-image {
-  filter: brightness(50%);
+.service-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
-/* Стили для контента услуг */
+.service-item:hover .service-inner {
+  transform: rotateY(180deg);
+}
+
+.service-front,
+.service-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.service-front {
+  background: linear-gradient(145deg, #fff, #f0f2f5);
+  overflow: hidden; /* Обрезаем изображение, если оно выходит за границы */
+}
+
+.service-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Изображение заполняет карточку */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Изображение под контентом */
+}
+
+.service-back {
+  background: linear-gradient(145deg, #859099, #6e7884);
+  transform: rotateY(180deg);
+  color: #fff;
+}
+
+body.dark-theme .service-front {
+  background: linear-gradient(145deg, #859099, #6e7884);
+}
+
+body.dark-theme .service-back {
+  background: linear-gradient(145deg, #fff, #f0f2f5);
+  color: #69737f;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
 .service-content {
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
   padding: 10px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
+  position: relative; /* Чтобы контент был поверх изображения */
+  z-index: 2; /* Контент поверх изображения */
 }
 
-/* Изменение фона контента при наведении */
 .service-item:hover .service-content {
   background: rgba(255, 209, 230, 0.8);
-  padding: 20px;
 }
 
-/* Стили для заголовков услуг */
 .service-content h3 {
   font-size: 1.2rem;
   margin: 0;
   text-transform: uppercase;
 }
 
-/* Стили для краткого описания */
-.short-desc {
-  font-size: 0.9rem;
-  margin: 5px 0 0;
-  display: block;
-  transition: opacity 0.3s ease;
-}
-
-/* Стили для подробного описания */
 .detailed-desc {
   font-size: 0.9rem;
   margin: 5px 0 0;
-  display: none;
 }
-
-/* Показ подробного описания при наведении */
-.service-item:hover .detailed-desc {
-  display: block;
-  opacity: 1;
-}
-
-/* Скрытие краткого описания при наведении */
-.service-item:hover .short-desc {
-  display: none;
-  opacity: 0;
-}
-
-
 
 /* 
 ==============================================
@@ -1107,6 +1106,93 @@ body.dark-theme .service-price {
   }
 }
 
+/* Стили для контейнера кнопки и текста */
+.phone-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Стили для блока с картинкой, текстом и стрелкой */
+.phone-callout {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin-right: 10px; /* Отступ от кнопки */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Скрыт по умолчанию */
+  transform: translateX(20px); /* Сдвинут вправо */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Показываем блок при наведении на контейнер */
+.phone-container:hover .phone-callout {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Стили для изображения */
+.callout-image {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+/* Стили для текста */
+.callout-text {
+  font-size: 16px;
+  color: #a48899; /* Цвет из вашей палитры */
+  margin-right: 8px;
+}
+
+/* Стили для стрелки */
+.callout-arrow {
+  width: 16px;
+  height: 16px;
+}
+
+/* Стили для кнопки телефона */
+.phone-btn {
+  width: 60px;
+  height: 60px;
+  background-color: #e5acbf;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: bounce 2s infinite;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.phone-btn:hover {
+  background-color: #a48899;
+  transform: scale(1.1);
+}
+
+.phone-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Анимация прыжка */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-7px);
+  }
+}
+
 /* 
 ==============================================
 13. Footer
@@ -1215,7 +1301,7 @@ body.dark-theme .service-price {
 .social-icon {
   width: 40px;
   height: 40px;
-  background-color: #fff;
+  background-color: #ffffff1c;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1731,5 +1817,62 @@ body.dark-theme .service-price {
 @media (max-width: 480px) {
   .carousel-item p {
     font-size: 20px;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .phone-container {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .phone-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .phone-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .phone-callout {
+    padding: 6px 10px;
+  }
+
+  .callout-image {
+    width: 30px;
+    height: 30px;
+  }
+
+  .callout-text {
+    font-size: 14px;
+  }
+
+  .callout-arrow {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .phone-container {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .phone-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .phone-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .phone-callout {
+    display: none; /* Скрываем текст на маленьких экранах */
   }
 }
