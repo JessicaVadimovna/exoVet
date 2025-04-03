@@ -158,51 +158,107 @@ document.addEventListener('DOMContentLoaded', function () {
 // Карусель
 const carousel = document.querySelector('.carousel');
 const items = document.querySelectorAll('.carousel-item');
-const itemWidth = items[0].offsetWidth + 30; // Ширина элемента с учетом gap
-const originalItemCount = 4; // Количество уникальных изображений
-const totalWidth = itemWidth * originalItemCount * 3; // Ширина трёх наборов
-let currentTranslate = -originalItemCount * itemWidth; // Начало со среднего набора
-let prevTranslate = currentTranslate;
+const gap = 30; // Расстояние между элементами из CSS
+let itemWidth = items[0].offsetWidth + gap; // Ширина элемента с учетом gap
+const totalItems = items.length;
+let totalWidth = totalItems * itemWidth; // Общая ширина
+let currentIndex = 4; // Начальная позиция (с 5-го элемента)
 let isDragging = false;
+let startPos = 0;
+let animationFrame;
 
-function setPosition() {
-  carousel.style.transform = `translateX(${currentTranslate}px)`;
+// Клонируем элементы для бесконечного эффекта
+const firstClones = [];
+const lastClones = [];
+
+for (let i = 0; i < 4; i++) { // Клонируем 4 первых и 4 последних элемента
+  const firstClone = items[i].cloneNode(true);
+  const lastClone = items[totalItems - 1 - i].cloneNode(true);
+  firstClone.classList.add('clone');
+  lastClone.classList.add('clone');
+  firstClones.push(firstClone);
+  lastClones.unshift(lastClone);
+  carousel.appendChild(firstClone);
+  carousel.insertBefore(lastClone, items[0]);
 }
 
-// Перетаскивание
-carousel.addEventListener('mousedown', dragStart);
-carousel.addEventListener('mousemove', drag);
-carousel.addEventListener('mouseup', dragEnd);
+const allItems = document.querySelectorAll('.carousel-item');
 
-function dragStart(event) {
-  startPos = event.clientX;
+carousel.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
+
+function setPosition(instant = false) {
+  if (instant) {
+    carousel.style.transition = 'none';
+  } else {
+    carousel.style.transition = 'transform 0.5s ease';
+  }
+  carousel.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
+}
+
+// Проверка границ и корректировка
+function checkLoop() {
+  if (currentIndex >= totalItems + 4) {
+    setTimeout(() => {
+      currentIndex = 4;
+      setPosition(true);
+    }, 500);
+  } else if (currentIndex <= 3) {
+    setTimeout(() => {
+      currentIndex = totalItems + 3;
+      setPosition(true);
+    }, 500);
+  }
+}
+
+// Обработчики касаний (для мобильных устройств)
+carousel.addEventListener('touchstart', touchStart);
+carousel.addEventListener('touchmove', touchMove);
+carousel.addEventListener('touchend', touchEnd);
+
+function touchStart(event) {
+  startPos = event.touches[0].clientX;
   isDragging = true;
   carousel.style.transition = 'none';
+  cancelAnimationFrame(animationFrame);
 }
 
-function drag(event) {
+function touchMove(event) {
   if (isDragging) {
-    currentTranslate = prevTranslate + event.clientX - startPos;
-    if (currentTranslate < -totalWidth) currentTranslate += totalWidth; // Бесконечность
-    if (currentTranslate > 0) currentTranslate -= totalWidth;
-    setPosition();
+    const currentPosition = event.touches[0].clientX;
+    let diff = (currentPosition - startPos) / itemWidth;
+    carousel.style.transform = `translateX(${-itemWidth * (currentIndex - diff)}px)`;
   }
 }
 
-function dragEnd() {
+function touchEnd() {
   isDragging = false;
-  prevTranslate = currentTranslate;
-  carousel.style.transition = 'transform 0.5s ease';
+  currentIndex = Math.round(currentIndex - (startPos - event.changedTouches[0].clientX) / itemWidth);
+  setPosition();
+  checkLoop();
 }
 
-// Автоматическая смена каждые 5 секунд
-setInterval(() => {
+// Автоматическая прокрутка каждые 5 секунд
+function autoSlide() {
   if (!isDragging) {
-    currentTranslate -= itemWidth;
-    if (currentTranslate < -totalWidth) currentTranslate += totalWidth;
-    carousel.style.transition = 'transform 0.5s ease';
+    currentIndex++;
     setPosition();
+    checkLoop();
   }
-}, 5000);
+  animationFrame = requestAnimationFrame(() => setTimeout(autoSlide, 5000));
+}
 
-setPosition(); // Инициализация
+setTimeout(autoSlide, 5000);
+
+// Обновление размеров карусели при изменении экрана
+function updateCarousel() {
+  itemWidth = items[0].offsetWidth + gap;
+  totalWidth = totalItems * itemWidth;
+  setPosition(true);
+}
+
+window.addEventListener('resize', updateCarousel);
+
+// Устанавливаем начальную позицию
+setPosition(true);
+
+

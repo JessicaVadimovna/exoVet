@@ -39,16 +39,6 @@ TABLE OF CONTENTS
 }
 
 /* Light theme (default) */
-body {
-  background-color: #f6f5f6;
-  color: #69737f;
-}
-
-/* Dark theme */
-body.dark-theme {
-  background-color: #69737f;
-  color: #f5f6f6;
-}
 
 /* Smooth scrolling */
 html {
@@ -122,7 +112,6 @@ nav {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px;
   position: relative;
 }
 
@@ -157,7 +146,6 @@ body.dark-theme {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  flex-grow: 1;
   white-space: nowrap;
 }
 
@@ -805,7 +793,6 @@ body.dark-theme .specialist-item p {
 10. Gallery Section
 ==============================================
 */
-/* Gallery section*/
 .carousel-container {
   max-width: 1200px;
   margin: 60px auto;
@@ -813,6 +800,27 @@ body.dark-theme .specialist-item p {
   position: relative;
   overflow: hidden;
   text-align: center;
+}
+
+.carousel-container::before,
+.carousel-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px; /* Ширина области тумана */
+  z-index: 1; /* Помещаем поверх контента */
+  pointer-events: none; /* Чтобы туман не мешал взаимодействию */
+}
+
+.carousel-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.carousel-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 }
 
 .carousel-container h2 {
@@ -827,29 +835,22 @@ body.dark-theme .specialist-item p {
 
 .carousel {
   display: flex;
-  gap: 30px; /* Отступы между элементами */
+  gap: 30px; /* Gap between items */
   transition: transform 0.5s ease;
-  padding: 20px 0;
-}
-
-.carousel-item p img{
-  width: 35px;
-  height: auto;
+  padding: 10px 0;
+  width: max-content; /* Ensures the carousel can extend beyond the container */
 }
 
 .carousel-item {
-  min-width: calc(33.33% - 20px); /* Учитываем gap */
+  width: 346px; /* Fixed width for three items in 1100px effective width (1200px - 100px padding) */
   background: linear-gradient(145deg, #fff, #f0f2f5);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   text-align: center;
-}
-
-body.dark-theme .carousel-item {
-  background: linear-gradient(145deg, #859099, #6e7884);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0; /* Prevents items from shrinking */
+  border: 2px solid #e5acbf4b;
 }
 
 .carousel-item:hover {
@@ -865,6 +866,11 @@ body.dark-theme .carousel-item {
   transition: transform 0.3s ease;
 }
 
+.carousel-item p img {
+  width: 35px;
+  height: auto;
+}
+
 .carousel-item:hover img {
   transform: scale(1.05);
 }
@@ -877,16 +883,8 @@ body.dark-theme .carousel-item {
   letter-spacing: 0.5px;
 }
 
-body.dark-theme .carousel-item p {
-  color: #f5f6f6;
-}
-
 .carousel-item:hover p {
   color: #a48899;
-}
-
-body.dark-theme .carousel-item:hover p {
-  color: #e5acbf;
 }
 
 /* 
@@ -1772,54 +1770,6 @@ body.dark-theme .service-price {
 }
 
 
-@media (max-width: 768px) {
-  .carousel-container {
-      padding: 0 40px;
-  }
-
-  .carousel-item {
-      min-width: calc(50% - 15px);
-  }
-
-  .carousel-item img {
-      height: 240px;
-  }
-
-  .carousel {
-      gap: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel-container {
-      padding: 0 30px;
-  }
-
-  .carousel-item {
-      min-width: calc(100% - 10px);
-  }
-
-  .carousel-item img {
-      height: 300px;
-  }
-
-  .carousel {
-      gap: 10px;
-  }
-}
-
-/* Адаптивность сердечек */
-@media (max-width: 768px) {
-  .carousel-item p {
-    font-size: 24px;
-  }
-}
-@media (max-width: 480px) {
-  .carousel-item p {
-    font-size: 20px;
-  }
-}
-
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
   .phone-container {
@@ -1874,5 +1824,50 @@ body.dark-theme .service-price {
 
   .phone-callout {
     display: none; /* Скрываем текст на маленьких экранах */
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .carousel-container {
+    padding: 0 30px;
+  }
+  .carousel-item {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    padding: 0 20px;
+  }
+  .carousel {
+    gap: 15px;
+  }
+  .carousel-item {
+    max-width: 220px;
+    padding: 15px;
+  }
+  .carousel-item img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    padding: 0 10px;
+  }
+  .carousel {
+    gap: 10px;
+  }
+  .carousel-item {
+    max-width: 180px;
+    padding: 10px;
+  }
+  .carousel-item img {
+    height: 160px;
+  }
+  .carousel-item p {
+    font-size: 14px;
   }
 }
