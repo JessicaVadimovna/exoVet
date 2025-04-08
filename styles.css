@@ -502,6 +502,7 @@ nav {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  position: relative; /* Добавляем для контекста z-index */
 }
 
 .specialist-item {
@@ -514,11 +515,14 @@ nav {
   box-shadow: var(--shadow-sm);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   text-align: center;
+  position: relative; /* Для позиционирования боковых изображений */
+  z-index: 1; /* Базовый уровень для карточек */
 }
 
 .specialist-item:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-md);
+  z-index: 2; /* Поднимаем карточку при наведении */
 }
 
 .specialist-item img {
@@ -540,6 +544,52 @@ nav {
   color: var(--text-color);
   font-size: 16px;
   line-height: 1.5;
+}
+
+/* Стили для боковых изображений */
+.left-img,
+.right-img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0; /* Скрыто по умолчанию */
+  transition: opacity 0.3s ease; /* Плавное появление */
+  z-index: 3; /* Выше всех карточек */
+}
+
+.left-img {
+  left: -150px; /* Смещение влево */
+  transition: opacity 0.3s ease, left 0.3s ease;
+}
+
+.right-img {
+  right: -120px; /* Смещение вправо */
+  transition: opacity 0.3s ease, right 0.3s ease;
+}
+
+.left-img img,
+.right-img img {
+  width: 250px; /* Размер изображения */
+  height: auto;
+  object-fit: contain;
+  border: none;
+}
+
+.specialist-item:hover .left-img {
+  opacity: 1;
+  left: -120px;
+}
+.specialist-item:hover .right-img {
+  opacity: 1;
+  right: -60px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .left-img,
+  .right-img {
+    display: none; /* Скрываем изображения на мобильных */
+  }
 }
 
 /* Gallery секция */
@@ -1049,7 +1099,10 @@ nav {
   transition: color 0.3s ease;
 }
 
-.footer-madeby a:hover { color: var(--white); }
+.footer-madeby a:hover { 
+  color: #e5accf; /* Замените на ваш основной цвет, например, #e5accf */
+  text-decoration: dashed;
+}
 
 /* Анимации */
 @keyframes slideIn {
@@ -1069,14 +1122,14 @@ nav {
 }
 
 .footer-offer a {
-  color: #666; /* Цвет текста, подстройте под ваш дизайн */
+  color: #dadee2;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-offer a:hover {
   color: #e5accf; /* Замените на ваш основной цвет, например, #e5accf */
-  text-decoration: underline;
+  text-decoration: dashed;
 }
 
 /* Медиа-запросы */
