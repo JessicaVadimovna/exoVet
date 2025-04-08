@@ -161,16 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Создаем элемент для отображения достижения
-  const achievement = document.createElement('div');
-  achievement.className = 'achievement';
+  const achievement = document.getElementById('tap-achievement');
+  const tappableItems = document.querySelectorAll('.animal-item');
 
-  achievement.textContent = 'Достижение: Мастер тапов!';
-  document.body.appendChild(achievement);
-
-  // Обработка кликов по элементам
-  const tappableItems = document.querySelectorAll('.feature-item, .animal-item');
-  
   tappableItems.forEach(item => {
     item.addEventListener('click', function(e) {
       // Увеличиваем счетчик тапов
@@ -178,30 +171,28 @@ document.addEventListener('DOMContentLoaded', () => {
       taps++;
       this.setAttribute('data-taps', taps);
 
-      // Создаем плавающий счетчик
+      // Создаем плавающий счетчик +1
       const counter = document.createElement('span');
       counter.className = 'tap-counter';
       counter.textContent = '+1';
-      
-      // Позиционируем счетчик относительно клика
       const rect = this.getBoundingClientRect();
       counter.style.left = (e.clientX - rect.left) + 'px';
       counter.style.top = (e.clientY - rect.top) + 'px';
       this.appendChild(counter);
 
-      // Проверяем условие пасхалки
+      // Показываем достижение после 25 тапов
       if (taps === 25) {
         achievement.style.display = 'block';
+        
+        // Скрываем через 4 секунды
         setTimeout(() => {
           achievement.style.display = 'none';
-        }, 3000); // Скрываем через 3 секунды
-        this.setAttribute('data-taps', '0'); // Сбрасываем счетчик
+          this.setAttribute('data-taps', '0'); // Сбрасываем счетчик
+        }, 4000);
       }
 
-      // Удаляем счетчик после анимации
-      setTimeout(() => {
-        counter.remove();
-      }, 1000);
+      // Удаляем счетчик +1 после анимации
+      setTimeout(() => counter.remove(), 1000);
     });
   });
 });
