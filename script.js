@@ -156,6 +156,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('resize', updateCarousel);
   setPosition(true);
+
+  // Функциональность модального окна для изображений
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  const closeBtn = document.querySelector('.close');
+  const carouselImages = document.querySelectorAll('.carousel-item img:not(.clone img)');
+
+  carouselImages.forEach(img => {
+    img.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalImg.src = this.src;
+      document.body.style.overflow = 'hidden'; // Отключаем прокрутку
+    });
+  });
+
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Включаем прокрутку обратно
+  });
+
+  // Закрытие при клике вне изображения
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Закрытие по клавише Esc
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
 });
 
 
