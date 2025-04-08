@@ -324,6 +324,30 @@ nav {
   transform: scale(1.1);
 }
 
+.tap-counter {
+  position: absolute;
+  color: #a1808f;
+  font-weight: bold;
+  animation: floatUp 1s ease-out forwards;
+  pointer-events: none;
+}
+
+.achievement {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ffd700;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none;
+  z-index: 1000;
+}
+
+@keyframes floatUp {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-30px); }
+}
+
 /* Services секция */
 .services {
   padding: 50px 20px;

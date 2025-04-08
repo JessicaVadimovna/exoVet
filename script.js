@@ -157,3 +157,51 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', updateCarousel);
   setPosition(true);
 });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Создаем элемент для отображения достижения
+  const achievement = document.createElement('div');
+  achievement.className = 'achievement';
+
+  achievement.textContent = 'Достижение: Мастер тапов!';
+  document.body.appendChild(achievement);
+
+  // Обработка кликов по элементам
+  const tappableItems = document.querySelectorAll('.feature-item, .animal-item');
+  
+  tappableItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      // Увеличиваем счетчик тапов
+      let taps = parseInt(this.getAttribute('data-taps')) || 0;
+      taps++;
+      this.setAttribute('data-taps', taps);
+
+      // Создаем плавающий счетчик
+      const counter = document.createElement('span');
+      counter.className = 'tap-counter';
+      counter.textContent = '+1';
+      
+      // Позиционируем счетчик относительно клика
+      const rect = this.getBoundingClientRect();
+      counter.style.left = (e.clientX - rect.left) + 'px';
+      counter.style.top = (e.clientY - rect.top) + 'px';
+      this.appendChild(counter);
+
+      // Проверяем условие пасхалки
+      if (taps === 25) {
+        achievement.style.display = 'block';
+        setTimeout(() => {
+          achievement.style.display = 'none';
+        }, 3000); // Скрываем через 3 секунды
+        this.setAttribute('data-taps', '0'); // Сбрасываем счетчик
+      }
+
+      // Удаляем счетчик после анимации
+      setTimeout(() => {
+        counter.remove();
+      }, 1000);
+    });
+  });
+});
