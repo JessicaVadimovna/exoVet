@@ -6,7 +6,9 @@
 
 @font-face {
   font-family: 'Comfortaa';
-  src: url('./assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf');
+  src: url('./assets/fonts/Comfortaa/static/Comfortaa-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
