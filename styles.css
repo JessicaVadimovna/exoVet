@@ -1,17 +1,17 @@
 /* Импорт шрифтов */
 @font-face {
   font-family: 'Montserrat';
-  src: url('/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+  src: url('./assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
 }
 
 @font-face {
   font-family: 'Comfortaa';
-  src: url('/assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf');
+  src: url('./assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf');
 }
 
 @font-face {
   font-family: 'AmaticSC';
-  src: url('/assets/fonts/Amatic_SC/AmaticSC-Regular.ttf');
+  src: url('./assets/fonts/Amatic_SC/AmaticSC-Regular.ttf');
 }
 
 :root {
