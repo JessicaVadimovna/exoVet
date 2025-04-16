@@ -548,10 +548,21 @@ nav {
 
 /* Стили для боковых изображений */
 .left-img,
+.top-img,
 .right-img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  opacity: 0; /* Скрыто по умолчанию */
+  transition: opacity 0.3s ease; /* Плавное появление */
+  z-index: 3; /* Выше всех карточек */
+}
+
+.top-img {
+  position: absolute;
+  top: 50%;
+  transform: translateX(50%);
+  transform: translateY(-100%);
   opacity: 0; /* Скрыто по умолчанию */
   transition: opacity 0.3s ease; /* Плавное появление */
   z-index: 3; /* Выше всех карточек */
@@ -562,12 +573,18 @@ nav {
   transition: opacity 0.3s ease, left 0.3s ease;
 }
 
+.top-img {
+  top: 150px;
+  transition: opacity 0.3s ease, top 0.3s ease;
+}
+
 .right-img {
   right: -120px; /* Смещение вправо */
   transition: opacity 0.3s ease, right 0.3s ease;
 }
 
 .left-img img,
+.top-img img,
 .right-img img {
   width: 250px; /* Размер изображения */
   height: auto;
@@ -579,6 +596,12 @@ nav {
   opacity: 1;
   left: -120px;
 }
+
+.specialist-item:hover .top-img {
+  opacity: 1;
+  top: 150px;
+}
+
 .specialist-item:hover .right-img {
   opacity: 1;
   right: -60px;
