@@ -1174,7 +1174,7 @@ nav {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: var(--light-bg);
+    background-color: #e8c3c9;
     padding: 20px 0;
     box-shadow: var(--shadow-sm);
   }
